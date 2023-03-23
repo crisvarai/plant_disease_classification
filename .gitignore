@@ -1,2 +1,11 @@
+# Compiled python
+__pycache__/
+
+# Dataset
 plant_leave_diseases_dataset_with_augmentation
+
+# Saved weights
 weights
+
+# App
+flask_app
