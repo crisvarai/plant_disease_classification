@@ -1,4 +1,5 @@
 import torch
+import logging
 import numpy as np
 
 from torch import nn
@@ -43,8 +44,8 @@ def batch_gd(model, train_loader, validation_loader, epochs, lr, weights_path, d
             validation_loss = np.mean(validation_loss)
             train_losses[e] = train_loss
             validation_losses[e] = validation_loss
-        print(f"Epoch:{e+1}/{epochs} Train_loss:{train_loss:.5f} Validation_loss:{validation_loss:.5f}")
+        logging.info(f"Epoch:{e+1}/{epochs} Train_loss:{train_loss:.5f} Validation_loss:{validation_loss:.5f}")
 
     torch.save(model.state_dict(), weights_path)
-    print("WEIGHTS-ARE-SAVED")
+    logging.info("WEIGHTS-ARE-SAVED")
     return train_losses, validation_losses

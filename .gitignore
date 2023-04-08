@@ -9,3 +9,6 @@ weights
 
 # App
 flask_app
+
+# Loggin
+*.log
