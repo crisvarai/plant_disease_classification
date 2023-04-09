@@ -1,3 +1,4 @@
+import logging
 from torch import nn
 
 class CNN_Model(nn.Module):
@@ -44,4 +45,5 @@ class CNN_Model(nn.Module):
 if __name__ == "__main__":
     TARGETS_SIZE = 39
     cnn_model = CNN_Model(TARGETS_SIZE)
-    print(f"CNN_Model: {cnn_model}")
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s-%(name)s-%(levelname)s-%(message)s")
+    logging.info(f"CNN_Model: {cnn_model}")

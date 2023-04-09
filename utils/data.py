@@ -1,3 +1,4 @@
+import logging
 import numpy as np
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
@@ -42,7 +43,8 @@ def dataloader(dataset, batch_size, train_sampler, validation_sampler, test_samp
 if __name__ == "__main__":
     dataset = datasets.ImageFolder("../plant_leave_diseases_dataset_with_augmentation", transform=data_transforms())
     train_sampler, validation_sampler, test_sampler = split_dataset(dataset, 0.6, 0.25, 0.15)
-    print(f"Length of train size: {len(train_sampler)}")
-    print(f"Length of validation size: {len(validation_sampler)}")
-    print(f"Length of test size: {len(test_sampler)}")
-    print(f"Targets size: {len(dataset.class_to_idx)}")
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s-%(name)s-%(levelname)s-%(message)s")
+    logging.info(f"Length of train size: {len(train_sampler)}")
+    logging.info(f"Length of validation size: {len(validation_sampler)}")
+    logging.info(f"Length of test size: {len(test_sampler)}")
+    logging.info(f"Targets size: {len(dataset.class_to_idx)}")
